@@ -1,0 +1,27 @@
+
+
+enum CS_MESSAGE_ID
+{
+	cs_message_begin	=	0;
+
+	cs_login	        =	1;
+    cs_ping             =   2;
+    cs_create_role      =   3;
+    cs_select_role      =   4;
+    cs_logout           =   5;
+
+	cs_message_end		=	0xFFFF;
+}
+
+enum SC_MESSAGE_ID
+{
+	sc_message_begin	=	0;
+
+	sc_login	    =	1;
+    sc_error_code   =   2;
+    sc_allow_login  =   3;
+    sc_sync_role_list = 4;
+    sc_sync_role_data = 5;
+
+	sc_message_end		=	0xFFFF;
+}

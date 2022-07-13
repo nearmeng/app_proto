@@ -1,0 +1,33 @@
+cmake_minimum_required (VERSION 3.20)
+
+project(app_proto)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include (proto)
+include (fetch_content)
+
+SET(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/fetch")
+fetch_content(thirdparty https://github.com/nearmeng/thirdparty.git master)
+fetch_content(ss_proto_common https://github.com/nearmeng/ss_proto_common.git master)
+
+SET(BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+preprocess_proto(cs_proto)
+preprocess_proto(db_proto)
+
+file (GLOB_RECURSE CS_SRC_FILES "cs_proto/*.cc")
+file (GLOB_RECURSE DB_SRC_FILES "db_proto/*.cc")
+
+add_library(cs_proto STATIC ${CS_SRC_FILES})
+add_library(mango::cs_proto ALIAS cs_proto)
+target_include_directories(cs_proto PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries (cs_proto 3rd::protobuf)
+
+add_library(db_proto STATIC ${DB_SRC_FILES})
+add_library(mango::db_proto ALIAS db_proto)
+target_include_directories(db_proto PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries (db_proto 3rd::protobuf)
+
+add_library(ss_proto INTERFACE)
+add_library(mango::ss_proto ALIAS ss_proto)
+target_include_directories(ss_proto INTERFACE .)
+target_link_libraries(ss_proto INTERFACE mango::ss_proto_common)
