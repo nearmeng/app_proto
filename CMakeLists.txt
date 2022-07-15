@@ -6,7 +6,6 @@ include (FetchContent)
 FetchContent_Declare(cmake_tool GIT_REPOSITORY https://github.com/nearmeng/cmake_tools.git GIT_TAG master)
 FetchContent_MakeAvailable(cmake_tool)
 
-SET(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/fetch")
 fetch_content(thirdparty https://github.com/nearmeng/thirdparty.git master)
 fetch_content(ss_proto_common https://github.com/nearmeng/ss_proto_common.git master)
 
