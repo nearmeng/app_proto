@@ -1,0 +1,20 @@
+enum ERROR_CODE
+{
+	errUnknown = -1,
+	errSuccess = 0,
+
+    errConnBegin            =   1,
+    errConnAlreadyExist,
+    errConnTimeout,
+    errConnEnd              =   100,
+
+    errLoginBegin           =   101,
+    errLoginNotInWhiteList,
+    errLoginUserBanned,
+    errLoginAlreadyLogin,
+    errLoginRepeated,
+    errLogoutNormal,
+    errLoginEnd             =   200,
+
+	errTotal				= 0xFFFF;
+}

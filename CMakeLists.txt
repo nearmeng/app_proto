@@ -13,6 +13,7 @@ init_project()
 
 preprocess_proto(cs_proto)
 preprocess_proto(db_proto)
+preprocess_proto(error_code)
 
 file (GLOB_RECURSE CS_SRC_FILES "cs_proto/*.cc")
 file (GLOB_RECURSE DB_SRC_FILES "db_proto/*.cc")
