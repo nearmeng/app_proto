@@ -4,16 +4,16 @@ enum ERROR_CODE
 	errSuccess = 0;
 
     errConnBegin            =   1;
-    errConnAlreadyExist,
-    errConnTimeout,
+    errConnAlreadyExist     =   2;
+    errConnTimeout          =   3;
     errConnEnd              =   100;
 
     errLoginBegin           =   101;
-    errLoginNotInWhiteList,
-    errLoginUserBanned,
-    errLoginAlreadyLogin,
-    errLoginRepeated,
-    errLogoutNormal,
+    errLoginNotInWhiteList  =	102;
+    errLoginUserBanned		=	103;
+    errLoginAlreadyLogin	=	104;
+    errLoginRepeated		=	105;
+    errLogoutNormal			=	106;
     errLoginEnd             =   200;
 
 	errTotal				= 0xFFFF;
